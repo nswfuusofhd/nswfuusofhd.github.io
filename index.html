@@ -18,7 +18,7 @@
 
   <style>
     /* ======================= */
-    /* Palette aventure (désaturée) */
+    /* Palette aventure        */
     /* ======================= */
     :root{
       --bg:#0b0e0c;        /* noir forestier profond */
@@ -54,10 +54,7 @@
     }
     .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
 
-    /* Marque (logo + texte) cliquable */
-    .brand{
-      display:flex; align-items:center; gap:12px; min-height:68px;
-    }
+    .brand{display:flex; align-items:center; gap:12px; min-height:68px}
     .brand:focus-visible{outline:2px solid var(--acc2); outline-offset:4px}
     .logo{
       width:56px; height:56px; border-radius:50%;
@@ -78,7 +75,6 @@
     }
     .btn:hover{transform:translateY(-1px)}
 
-    /* Burger mobile */
     .nav-toggle{
       display:none; border:1px solid var(--stroke); background:var(--card);
       color:var(--txt); border-radius:12px; padding:8px 12px; font-size:18px;
@@ -94,19 +90,36 @@
     .kpi{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid var(--stroke);padding:16px;border-radius:14px}
     .kpi strong{font-size:24px;color:var(--acc2)}
 
+    /* --- Gros logo dans le hero --- */
+    .hero-brand{
+      display:grid;
+      grid-template-columns:140px 1fr;
+      align-items:center;
+      gap:22px;
+      margin-bottom:14px;
+    }
+    .hero-logo{
+      width:140px; height:140px; border-radius:50%;
+      object-fit:cover; display:block;
+      border:1px solid var(--stroke);
+      box-shadow:0 20px 50px rgba(0,0,0,.35), inset 0 0 0 6px rgba(0,0,0,.25);
+      background:transparent;
+    }
+    .hero-brand .brand-lines{line-height:1.2}
+    .hero-brand .brand-title{font-weight:900; letter-spacing:.6px; font-size:20px}
+    .hero-brand .brand-sub{color:var(--muted); font-size:14px; margin-top:4px}
+
     /* Sections */
     section{padding:64px 0;border-bottom:1px solid var(--stroke)}
     h2{font-size:clamp(22px,3.5vw,32px);margin:0 0 12px;color:var(--acc2)}
     .muted{color:var(--muted)}
 
-    /* Services */
     .grid{display:grid;gap:18px}
     .grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
     .grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
     .card{background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:18px}
     .card h3{margin:6px 0 8px;color:var(--acc)}
 
-    /* Process */
     .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
     .step{padding:18px;border:1px dashed var(--stroke);border-radius:16px;background:rgba(255,255,255,.02)}
     .step .n{
@@ -115,7 +128,6 @@
       color:#fff;font-weight:800;margin-bottom:8px
     }
 
-    /* Galerie */
     .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
     .ph{
       aspect-ratio:1/1;border-radius:12px;
@@ -152,19 +164,25 @@
     footer{padding:28px 0;color:var(--muted)}
     .foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
 
+    /* --- Badge logo flottant mobile --- */
+    @media (max-width:900px){
+      .logo-fab{
+        position:fixed; right:12px; bottom:12px; z-index:50;
+        width:52px; height:52px; border-radius:50%;
+        border:1px solid var(--stroke); background:var(--card);
+        box-shadow:0 10px 24px rgba(0,0,0,.35);
+        object-fit:contain; padding:3px;
+      }
+    }
+
     /* ======================= */
     /* Mobile polish (≤900px)  */
     /* ======================= */
     @media (max-width:900px){
       .container{padding:0 14px}
       .nav{flex-wrap:wrap; gap:10px}
-      .brand{min-height:56px; align-items:center} /* centrage vertical mobile */
-      .logo{
-        width:46px;height:46px;
-        object-fit:contain;  /* évite le rognage du logo sur mobile */
-        padding:3px;         /* petit espace pour respirer */
-        background:transparent;
-      }
+      .brand{min-height:56px; align-items:center}
+      .logo{width:46px;height:46px;object-fit:contain;padding:3px;background:transparent}
       .nav-toggle{display:inline-block; margin-left:auto}
 
       .menu{
@@ -180,6 +198,9 @@
       .hero h1{font-size:clamp(26px,7.5vw,34px); line-height:1.2; margin:8px 0 10px}
       section{padding:36px 0}
       h2{font-size:20px; margin-bottom:10px}
+
+      .hero-brand{grid-template-columns:84px 1fr; gap:14px; margin-bottom:10px}
+      .hero-logo{width:84px;height:84px;object-fit:contain;padding:3px;box-shadow:0 12px 28px rgba(0,0,0,.35), inset 0 0 0 4px rgba(0,0,0,.25)}
 
       .grid3,.grid2,.steps{grid-template-columns:1fr}
       .kpis{grid-template-columns:1fr; gap:12px}
@@ -234,6 +255,16 @@
 
   <section class="hero">
     <div class="container">
+
+      <!-- Gros logo hero -->
+      <a href="./" class="hero-brand" aria-label="Retour à l’accueil">
+        <img src="LOGO-ALEXPLORER.png" alt="Logo Alexplorer" class="hero-logo">
+        <div class="brand-lines">
+          <div class="brand-title">ALEXPLORER</div>
+          <div class="brand-sub">Sur-mesure • Robuste • Démontable</div>
+        </div>
+      </a>
+
       <small class="muted">Basé à Monts (37)</small>
       <h1>Aménagements <span style="background:linear-gradient(135deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent">sur-mesure</span> pour véhicules pros & loisirs</h1>
       <p>Modules robustes et modulaires pour <strong>chasseurs</strong>, <strong>vanlifers</strong> et <strong>professionnels</strong>. Conception en acier avec finitions résistantes, installation rapide et démontage simple.</p>
@@ -373,6 +404,11 @@
     </div>
   </footer>
 
+  <!-- Badge logo flottant mobile -->
+  <a href="./" aria-label="Retour haut de page">
+    <img src="LOGO-ALEXPLORER.png" alt="" class="logo-fab" />
+  </a>
+
   <!-- Scripts -->
   <script>
     // année auto
@@ -396,11 +432,29 @@
       });
     });
 
-    // empêcher le "souvenir de scroll" qui te met en bas sur mobile (si pas d'ancre)
-    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-    function resetScrollIfNoHash(){ if(!location.hash) window.scrollTo(0,0); }
-    window.addEventListener('load', resetScrollIfNoHash);
-    window.addEventListener('pageshow', resetScrollIfNoHash);
+    // Empêcher le "souvenir de scroll" + supprimer les #ancres sur iOS
+    if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+    (function(){
+      document.addEventListener('click', function(e){
+        const a = e.target.closest('a[href^="#"]');
+        if (!a) return;
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+      });
+      function stripHashOnMobile(){
+        const isMobile = window.matchMedia('(max-width: 900px)').matches;
+        if (isMobile && location.hash) {
+          history.replaceState(null, '', location.pathname + location.search);
+          window.scrollTo(0, 0);
+        }
+      }
+      window.addEventListener('load', stripHashOnMobile);
+      window.addEventListener('pageshow', stripHashOnMobile);
+    })();
   </script>
 </body>
 </html>
