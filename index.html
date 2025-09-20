@@ -3,41 +3,113 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>ALEXPLORER — Aménagements Véhicules | Sur-mesure robuste & démontable</title>
-  <meta name="description" content="Conception et fabrication de modules d'aménagement pour véhicules — chasse, vanlife et pros. Solutions robustes, modulaires et facilement démontables. Basé à Monts (37260)." />
+  <meta name="description" content="Conception et fabrication de modules d'aménagement robustes et démontables pour véhicules pros et loisirs. Basé à Monts (37260)." />
+
+  <!-- Open Graph -->
   <meta property="og:title" content="ALEXPLORER — Aménagements Véhicules" />
   <meta property="og:description" content="Modules sur-mesure robustes & démontables pour véhicules pros et loisirs." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/og-image.jpg" />
-  <meta name="theme-color" content="#1d2b22" />
+  <meta property="og:image" content="/LOGO-ALEXPLORER.png" />
+
+  <meta name="theme-color" content="#0b0e0c" />
   <link rel="icon" href="/favicon.ico" />
+
   <style>
+    /* ======================= */
+    /* Palette aventure        */
+    /* ======================= */
     :root{
-      --bg:#0f1411; --card:#1d2b22; --muted:#b6c6b3; --txt:#f3f7f2;
-      --acc:#3f6b39; --acc2:#87a76b; --stroke:rgba(255,255,255,.08)
+      --bg:#0b0e0c;        /* noir forestier profond */
+      --card:#151a16;      /* brun sombre */
+      --txt:#f1efe6;       /* sable clair */
+      --muted:#b5aa97;     /* beige/gris chaud */
+      --acc:#6b8f71;       /* kaki doux */
+      --acc2:#d2b48c;      /* sable / tan */
+      --stroke:rgba(255,255,255,.08);
     }
+
     *{box-sizing:border-box}
     html,body{margin:0;height:100%;scroll-behavior:smooth}
-    body{font-family:'Inter',system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
+    body{
+      font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+      line-height:1.6; color:var(--txt);
+      background:
+        radial-gradient(1200px 600px at 8% -10%, rgba(107,143,113,.06) 0%, transparent 60%),
+        radial-gradient(1000px 500px at 110% -20%, rgba(210,180,140,.05) 0%, transparent 60%),
+        var(--bg);
+    }
     a{color:inherit;text-decoration:none}
     .container{max-width:1100px;margin:auto;padding:0 20px}
-    header{position:sticky;top:0;backdrop-filter:saturate(160%) blur(8px);background:rgba(15,20,17,.85);border-bottom:1px solid var(--stroke);z-index:10}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .brand{display:flex;gap:12px;align-items:center;font-weight:700}
-    .logo{width:80px;height:80px;border-radius:50%;background:url('LOGO-ALEXPLORER.png') center/cover no-repeat}
-    .brand-text{font-size:18px;font-weight:800;letter-spacing:1px}
-    .menu a{opacity:.9;margin-left:18px}
-    .btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;padding:12px 16px;border-radius:12px;font-weight:700;box-shadow:0 8px 18px rgba(63,107,57,.25);transition:transform .15s ease}
+
+    /* ======================= */
+    /* Header + nav            */
+    /* ======================= */
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter:saturate(140%) blur(8px);
+      background:rgba(11,14,12,.78);
+      border-bottom:1px solid var(--stroke);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+
+    .brand{display:flex; align-items:center; gap:12px; min-height:68px}
+    .brand:focus-visible{outline:2px solid var(--acc2); outline-offset:4px}
+    .logo{
+      width:56px; height:56px; border-radius:50%;
+      object-fit:cover; display:block; flex:0 0 56px;
+      border:1px solid var(--stroke);
+    }
+    .brand-title{font-weight:800; letter-spacing:.6px}
+    .brand-sub{color:var(--muted); font-size:14px; margin-top:2px}
+
+    .menu{display:flex;align-items:center;gap:18px;margin-left:auto}
+    .menu a{opacity:.92}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      background:linear-gradient(135deg,var(--acc),var(--acc2));
+      color:#0b0e0c;border:none;padding:12px 16px;border-radius:12px;
+      font-weight:700;box-shadow:0 10px 24px rgba(107,143,113,.18);
+      transition:transform .15s ease;
+    }
     .btn:hover{transform:translateY(-1px)}
 
-    /* Hero */
-    .hero{padding:72px 0 48px;border-bottom:1px solid var(--stroke);background:linear-gradient(180deg,rgba(63,107,57,.15),transparent)}
-    .hero h1{font-size:clamp(28px,6vw,48px);line-height:1.1;margin:12px 0;color:var(--acc2)}
+    .nav-toggle{
+      display:none; border:1px solid var(--stroke); background:var(--card);
+      color:var(--txt); border-radius:12px; padding:8px 12px; font-size:18px;
+    }
+
+    /* ======================= */
+    /* Hero                    */
+    /* ======================= */
+    .hero{padding:72px 0 48px;border-bottom:1px solid var(--stroke)}
+    .hero h1{font-size:clamp(28px,6vw,48px);line-height:1.1;margin:12px 0}
     .hero p{max-width:760px;opacity:.95}
     .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
-    .kpi{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid var(--stroke);padding:16px;border-radius:14px}
+    .kpi{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid var(--stroke);padding:16px;border-radius:14px}
     .kpi strong{font-size:24px;color:var(--acc2)}
 
+    /* --- Gros logo dans le hero --- */
+    .hero-brand{
+      display:grid;
+      grid-template-columns:140px 1fr;
+      align-items:center;
+      gap:22px;
+      margin-bottom:14px;
+    }
+    .hero-logo{
+      width:140px; height:140px; border-radius:50%;
+      object-fit:cover; display:block;
+      border:1px solid var(--stroke);
+      box-shadow:0 20px 50px rgba(0,0,0,.35), inset 0 0 0 6px rgba(0,0,0,.25);
+      background:transparent;
+    }
+    .hero-brand .brand-lines{line-height:1.2}
+    .hero-brand .brand-title{font-weight:900; letter-spacing:.6px; font-size:20px}
+    .hero-brand .brand-sub{color:var(--muted); font-size:14px; margin-top:4px}
+
+    /* Sections */
     section{padding:64px 0;border-bottom:1px solid var(--stroke)}
     h2{font-size:clamp(22px,3.5vw,32px);margin:0 0 12px;color:var(--acc2)}
     .muted{color:var(--muted)}
@@ -50,13 +122,36 @@
 
     .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
     .step{padding:18px;border:1px dashed var(--stroke);border-radius:16px;background:rgba(255,255,255,.02)}
-    .step .n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;font-weight:800;margin-bottom:8px}
+    .step .n{
+      display:inline-grid;place-items:center;width:28px;height:28px;border-radius:8px;
+      background:linear-gradient(135deg,var(--acc),var(--acc2));
+      color:#fff;font-weight:800;margin-bottom:8px
+    }
 
     .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
-    .ph{aspect-ratio:1/1;border-radius:12px;background:linear-gradient(135deg,rgba(63,107,57,.25),rgba(135,167,107,.25));border:1px solid var(--stroke)}
+    .ph{
+      aspect-ratio:1/1;border-radius:12px;
+      background:linear-gradient(135deg,rgba(107,143,113,.22),rgba(210,180,140,.22));
+      border:1px solid var(--stroke)
+    }
 
-    .quote{font-size:18px;font-style:italic;color:var(--muted)}
+    /* Carte / Localisation */
+    .map-section{padding:64px 0;border-top:1px solid var(--stroke)}
+    .map-wrap{
+      background:var(--card); border:1px solid var(--stroke);
+      border-radius:16px; overflow:hidden;
+      box-shadow:0 10px 24px rgba(0,0,0,.15);
+    }
+    .map-legend{
+      display:flex; justify-content:space-between; align-items:center;
+      gap:12px; padding:14px 16px; border-bottom:1px solid var(--stroke);
+    }
+    .map-legend strong{color:var(--acc2)}
+    .map-frame{width:100%; aspect-ratio:16/10; border:0; display:block; filter:contrast(1.02) saturate(0.9)}
+    .map-actions{display:flex; gap:12px; padding:12px 16px; background:rgba(255,255,255,.02); border-top:1px solid var(--stroke)}
+    .map-actions .btn{padding:10px 14px}
 
+    /* Contact */
     .contact{display:grid;grid-template-columns:1.4fr .6fr;gap:18px}
     .contact .block{border:1px solid var(--stroke);border-radius:16px;padding:18px;background:rgba(255,255,255,.03)}
     input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--stroke);background:rgba(255,255,255,.05);color:var(--txt)}
@@ -65,34 +160,93 @@
     form .row + .row{margin-top:12px}
     form .actions{margin-top:14px}
 
+    /* Footer */
     footer{padding:28px 0;color:var(--muted)}
     .foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
 
-    /* Responsive */
+    /* --- Badge logo flottant mobile --- */
     @media (max-width:900px){
-      .kpis{grid-template-columns:1fr}
-      .grid3{grid-template-columns:1fr}
-      .grid2{grid-template-columns:1fr}
-      .steps{grid-template-columns:1fr 1fr}
-      .gallery{grid-template-columns:repeat(3,1fr)}
-      .contact{grid-template-columns:1fr}
-      /* Cacher le logo du header sur mobile */
-      .nav .logo {display:none;}
-      .nav .brand-text {font-size:22px;font-weight:800;letter-spacing:1px;}
+      .logo-fab{
+        position:fixed; right:12px; bottom:12px; z-index:50;
+        width:52px; height:52px; border-radius:50%;
+        border:1px solid var(--stroke); background:var(--card);
+        box-shadow:0 10px 24px rgba(0,0,0,.35);
+        object-fit:contain; padding:3px;
+      }
+    }
+
+    /* ======================= */
+    /* Mobile polish (≤900px)  */
+    /* ======================= */
+    @media (max-width:900px){
+      .container{padding:0 14px}
+      .nav{flex-wrap:wrap; gap:10px}
+      .brand{min-height:56px; align-items:center}
+      .logo{width:46px;height:46px;object-fit:contain;padding:3px;background:transparent}
+      .nav-toggle{display:inline-block; margin-left:auto}
+
+      .menu{
+        display:none; flex-direction:column; gap:8px;
+        width:100%; padding:10px; margin-top:6px;
+        background:rgba(0,0,0,.25); border:1px solid var(--stroke); border-radius:12px;
+      }
+      .menu.open{display:flex}
+      .menu a{padding:12px; border-radius:10px; background:rgba(255,255,255,.03)}
+      .menu .btn{width:100%; justify-content:center; min-height:48px}
+
+      .hero{padding:36px 0 20px}
+      .hero h1{font-size:clamp(26px,7.5vw,34px); line-height:1.2; margin:8px 0 10px}
+      section{padding:36px 0}
+      h2{font-size:20px; margin-bottom:10px}
+
+      .hero-brand{grid-template-columns:84px 1fr; gap:14px; margin-bottom:10px}
+      .hero-logo{width:84px;height:84px;object-fit:contain;padding:3px;box-shadow:0 12px 28px rgba(0,0,0,.35), inset 0 0 0 4px rgba(0,0,0,.25)}
+
+      .grid3,.grid2,.steps{grid-template-columns:1fr}
+      .kpis{grid-template-columns:1fr; gap:12px}
+      .gallery{grid-template-columns:repeat(2,1fr); gap:8px}
+
+      .map-section{padding:42px 0}
+      .map-frame{aspect-ratio:16/12}
+
+      .contact{grid-template-columns:1fr; gap:14px}
+      .menu a, .btn{min-height:44px}
+      input,textarea{font-size:16px}
     }
   </style>
+
+  <!-- Données structurées -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "ALEXPLORER — Aménagements Véhicules",
+    "description": "Conception et fabrication de modules d'aménagement robustes et démontables pour véhicules pros et loisirs.",
+    "address": {"@type":"PostalAddress","addressLocality":"Monts","postalCode":"37260","addressCountry":"FR"},
+    "areaServed": "France",
+    "url": "https://alexplorer.fr",
+    "sameAs": ["https://www.instagram.com/ALEXPLORER2025","https://www.linkedin.com/company/"],
+    "telephone": "+33 6 17 30 34 42"
+  }
+  </script>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <div class="brand">
-        <div class="logo"></div>
-        <div class="brand-text">ALEXPLORER</div>
-      </div>
-      <nav class="menu">
+      <a href="./" class="brand" aria-label="Retour à l’accueil">
+        <img src="LOGO-ALEXPLORER.png" alt="Logo Alexplorer" class="logo" />
+        <div>
+          <div class="brand-title">ALEXPLORER</div>
+          <div class="brand-sub">Sur-mesure • Robuste • Démontable</div>
+        </div>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="navmenu">☰</button>
+      <nav id="navmenu" class="menu">
         <a href="#services">Services</a>
         <a href="#realisations">Réalisations</a>
         <a href="#process">Process</a>
+        <a href="#ou">Où nous trouver</a>
         <a href="#contact">Contact</a>
         <a class="btn" href="#contact">Demander un devis</a>
       </nav>
@@ -101,11 +255,19 @@
 
   <section class="hero">
     <div class="container">
+
+      <!-- Gros logo hero -->
+      <a href="./" class="hero-brand" aria-label="Retour à l’accueil">
+        <img src="LOGO-ALEXPLORER.png" alt="Logo Alexplorer" class="hero-logo">
+        <div class="brand-lines">
+          <div class="brand-title">ALEXPLORER</div>
+          <div class="brand-sub">Sur-mesure • Robuste • Démontable</div>
+        </div>
+      </a>
+
       <small class="muted">Basé à Monts (37)</small>
-      <h1>Aménagements sur-mesure pour véhicules pros & loisirs</h1>
-      <p>
-        Modules robustes et modulaires pour <strong>chasseurs</strong>, <strong>vanlifers</strong> et <strong>professionnels</strong>. Conception en acier avec finitions résistantes, installation rapide et démontage simple.
-      </p>
+      <h1>Aménagements <span style="background:linear-gradient(135deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent">sur-mesure</span> pour véhicules pros & loisirs</h1>
+      <p>Modules robustes et modulaires pour <strong>chasseurs</strong>, <strong>vanlifers</strong> et <strong>professionnels</strong>. Conception en acier avec finitions résistantes, installation rapide et démontage simple.</p>
       <div class="kpis">
         <div class="kpi"><strong>+50</strong><br/><small class="muted">projets prototypes validés</small></div>
         <div class="kpi"><strong>≤ 2&nbsp;h</strong><br/><small class="muted">temps moyen de montage</small></div>
@@ -114,14 +276,185 @@
     </div>
   </section>
 
+  <section id="services">
+    <div class="container">
+      <h2>Services</h2>
+      <p class="muted">Du design à l’installation, nous livrons clé en main.</p>
+      <div class="grid grid3">
+        <div class="card">
+          <h3>Modules coffre démontables</h3>
+          <p>Tiroirs, rangements, supports modulaires. Pensés pour la praticité et la durabilité.</p>
+        </div>
+        <div class="card">
+          <h3>Aménagements pros</h3>
+          <p>Utilitaires, ambulances et artisans : optimisation d’espace, balisage et électricité embarquée.</p>
+        </div>
+        <div class="card">
+          <h3>Impression 3D & pièces</h3>
+          <p>Prototypage rapide et fabrication de pièces techniques sur mesure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="realisations">
+    <div class="container">
+      <h2>Réalisations</h2>
+      <p class="muted">Exemples de projets (photos à venir)</p>
+      <div class="gallery" aria-label="Galerie de réalisations">
+        <div class="ph" title="Module coffre"></div>
+        <div class="ph" title="Atelier mobile"></div>
+        <div class="ph" title="Support 3D"></div>
+        <div class="ph" title="Tiroirs acier"></div>
+        <div class="ph" title="Balisage"></div>
+        <div class="ph" title="Électricité embarquée"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="container">
+      <h2>Notre process</h2>
+      <p class="muted">Simple, rapide, documenté.</p>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><strong>Brief</strong><br/>Cahier des charges.</div>
+        <div class="step"><div class="n">2</div><strong>Conception</strong><br/>Modélisation & devis.</div>
+        <div class="step"><div class="n">3</div><strong>Fabrication</strong><br/>Découpe & assemblage.</div>
+        <div class="step"><div class="n">4</div><strong>Installation</strong><br/>Montage et suivi.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Localisation / Carte ===== -->
+  <section id="ou" class="map-section">
+    <div class="container">
+      <h2>Où nous trouver</h2>
+      <p class="muted">Atelier à <strong>Monts (37260)</strong> — rendez-vous sur demande.</p>
+
+      <div class="map-wrap">
+        <div class="map-legend">
+          <div>
+            <strong>Monts, Indre-et-Loire</strong><br>
+            <small class="muted">Proche de Tours • France</small>
+          </div>
+          <span aria-hidden="true">📍</span>
+        </div>
+
+        <iframe
+          class="map-frame"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Monts%2037260%20France&output=embed">
+        </iframe>
+
+        <div class="map-actions">
+          <a class="btn" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/search/?api=1&query=Monts%2037260%20France">
+            Ouvrir dans Google Maps
+          </a>
+          <a class="btn" target="_blank" rel="noopener"
+             href="https://www.openstreetmap.org/search?query=Monts%2037260%20France">
+            Voir sur OpenStreetMap
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- =============================== -->
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact & devis</h2>
+      <div class="contact">
+        <div class="block">
+          <!-- Remplace l'URL Formspree ci-dessous par ton vrai endpoint -->
+          <form action="https://formspree.io/f/XXXXXXX" method="POST">
+            <div class="row">
+              <div><label>Nom<br/><input name="name" placeholder="Votre nom" required></label></div>
+              <div><label>Email<br/><input type="email" name="email" placeholder="vous@exemple.fr" required></label></div>
+            </div>
+            <div class="row">
+              <div><label>Véhicule<br/><input name="vehicle" placeholder="(ex : Renault Trafic)"></label></div>
+              <div><label>Téléphone<br/><input name="phone" placeholder="+33 …"></label></div>
+            </div>
+            <div class="row">
+              <div style="grid-column:1/-1"><label>Message<br/><textarea name="message" placeholder="Votre besoin…"></textarea></label></div>
+            </div>
+            <div class="actions">
+              <button class="btn" type="submit">Envoyer</button>
+            </div>
+            <input type="hidden" name="_subject" value="Demande de devis — Site" />
+          </form>
+        </div>
+        <div class="block">
+          <h3>Coordonnées</h3>
+          <p>ALEXPLORER — Aménagements Véhicules<br/>37260 Monts, France</p>
+          <p><a href="mailto:contact@alexplorer.fr">contact@alexplorer.fr</a><br/><a href="tel:+33617303442">+33 6 17 30 34 42</a></p>
+          <p><a href="https://instagram.com/ALEXPLORER2025" target="_blank" rel="noopener">Instagram</a> • <a href="https://www.linkedin.com/company/" target="_blank" rel="noopener">LinkedIn</a></p>
+          <p><small class="muted">Horaires sur rendez-vous.</small></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="container foot">
-      <div>© <span id="y"></span> ALEXPLORER</div>
+      <div>© <span id="y"></span> ALEXPLORER — Aménagements Véhicules</div>
       <div><a href="#">Mentions légales</a> • <a href="#">RGPD</a></div>
     </div>
   </footer>
+
+  <!-- Badge logo flottant mobile -->
+  <a href="./" aria-label="Retour haut de page">
+    <img src="LOGO-ALEXPLORER.png" alt="" class="logo-fab" />
+  </a>
+
+  <!-- Scripts -->
   <script>
-    document.getElementById('y').textContent=new Date().getFullYear();
+    // année auto
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // menu mobile (toggle)
+    const btn = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('navmenu');
+    btn?.addEventListener('click', ()=>{
+      const open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // fermer le menu après clic sur un lien
+    document.querySelectorAll('#navmenu a').forEach(a=>{
+      a.addEventListener('click', ()=>{
+        if(menu.classList.contains('open')){
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+    });
+
+    // Empêcher le "souvenir de scroll" + supprimer les #ancres sur iOS
+    if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+    (function(){
+      document.addEventListener('click', function(e){
+        const a = e.target.closest('a[href^="#"]');
+        if (!a) return;
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+      });
+      function stripHashOnMobile(){
+        const isMobile = window.matchMedia('(max-width: 900px)').matches;
+        if (isMobile && location.hash) {
+          history.replaceState(null, '', location.pathname + location.search);
+          window.scrollTo(0, 0);
+        }
+      }
+      window.addEventListener('load', stripHashOnMobile);
+      window.addEventListener('pageshow', stripHashOnMobile);
+    })();
   </script>
 </body>
 </html>
