@@ -165,8 +165,11 @@
     .foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
 
     /* --- Badge logo flottant mobile --- */
+    .logo-fab { display: none; }  /* caché par défaut */
+
     @media (max-width:900px){
-      .logo-fab{
+      .logo-fab {
+        display:block;
         position:fixed; right:12px; bottom:12px; z-index:50;
         width:52px; height:52px; border-radius:50%;
         border:1px solid var(--stroke); background:var(--card);
@@ -214,10 +217,10 @@
       .menu a, .btn{min-height:44px}
       input,textarea{font-size:16px}
 
-      /* === Ta demande : header avec texte seul (pas de logo) === */
-      .nav .logo{display:none;}                 /* cache l'image du logo dans le header */
-      header .brand-sub{display:none;}          /* cache le sous-titre dans le header uniquement */
-      header .brand-title{font-size:22px;}      /* titre un peu plus grand */
+      /* === Header avec texte seul (pas de logo) === */
+      .nav .logo{display:none;}
+      header .brand-sub{display:none;}
+      header .brand-title{font-size:22px;}
     }
   </style>
 
@@ -312,155 +315,4 @@
         <div class="ph" title="Atelier mobile"></div>
         <div class="ph" title="Support 3D"></div>
         <div class="ph" title="Tiroirs acier"></div>
-        <div class="ph" title="Balisage"></div>
-        <div class="ph" title="Électricité embarquée"></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="process">
-    <div class="container">
-      <h2>Notre process</h2>
-      <p class="muted">Simple, rapide, documenté.</p>
-      <div class="steps">
-        <div class="step"><div class="n">1</div><strong>Brief</strong><br/>Cahier des charges.</div>
-        <div class="step"><div class="n">2</div><strong>Conception</strong><br/>Modélisation & devis.</div>
-        <div class="step"><div class="n">3</div><strong>Fabrication</strong><br/>Découpe & assemblage.</div>
-        <div class="step"><div class="n">4</div><strong>Installation</strong><br/>Montage et suivi.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Localisation / Carte ===== -->
-  <section id="ou" class="map-section">
-    <div class="container">
-      <h2>Où nous trouver</h2>
-      <p class="muted">Atelier à <strong>Monts (37260)</strong> — rendez-vous sur demande.</p>
-
-      <div class="map-wrap">
-        <div class="map-legend">
-          <div>
-            <strong>Monts, Indre-et-Loire</strong><br>
-            <small class="muted">Proche de Tours • France</small>
-          </div>
-          <span aria-hidden="true">📍</span>
-        </div>
-
-        <iframe
-          class="map-frame"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=Monts%2037260%20France&output=embed">
-        </iframe>
-
-        <div class="map-actions">
-          <a class="btn" target="_blank" rel="noopener"
-             href="https://www.google.com/maps/search/?api=1&query=Monts%2037260%20France">
-            Ouvrir dans Google Maps
-          </a>
-          <a class="btn" target="_blank" rel="noopener"
-             href="https://www.openstreetmap.org/search?query=Monts%2037260%20France">
-            Voir sur OpenStreetMap
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- =============================== -->
-
-  <section id="contact">
-    <div class="container">
-      <h2>Contact & devis</h2>
-      <div class="contact">
-        <div class="block">
-          <!-- Remplace l'URL Formspree ci-dessous par ton vrai endpoint -->
-          <form action="https://formspree.io/f/XXXXXXX" method="POST">
-            <div class="row">
-              <div><label>Nom<br/><input name="name" placeholder="Votre nom" required></label></div>
-              <div><label>Email<br/><input type="email" name="email" placeholder="vous@exemple.fr" required></label></div>
-            </div>
-            <div class="row">
-              <div><label>Véhicule<br/><input name="vehicle" placeholder="(ex : Renault Trafic)"></label></div>
-              <div><label>Téléphone<br/><input name="phone" placeholder="+33 …"></label></div>
-            </div>
-            <div class="row">
-              <div style="grid-column:1/-1"><label>Message<br/><textarea name="message" placeholder="Votre besoin…"></textarea></label></div>
-            </div>
-            <div class="actions">
-              <button class="btn" type="submit">Envoyer</button>
-            </div>
-            <input type="hidden" name="_subject" value="Demande de devis — Site" />
-          </form>
-        </div>
-        <div class="block">
-          <h3>Coordonnées</h3>
-          <p>ALEXPLORER — Aménagements Véhicules<br/>37260 Monts, France</p>
-          <p><a href="mailto:contact@alexplorer.fr">contact@alexplorer.fr</a><br/><a href="tel:+33617303442">+33 6 17 30 34 42</a></p>
-          <p><a href="https://instagram.com/ALEXPLORER2025" target="_blank" rel="noopener">Instagram</a> • <a href="https://www.linkedin.com/company/" target="_blank" rel="noopener">LinkedIn</a></p>
-          <p><small class="muted">Horaires sur rendez-vous.</small></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container foot">
-      <div>© <span id="y"></span> ALEXPLORER — Aménagements Véhicules</div>
-      <div><a href="#">Mentions légales</a> • <a href="#">RGPD</a></div>
-    </div>
-  </footer>
-
-  <!-- Badge logo flottant mobile -->
-  <a href="./" aria-label="Retour haut de page">
-    <img src="LOGO-ALEXPLORER.png" alt="" class="logo-fab" />
-  </a>
-
-  <!-- Scripts -->
-  <script>
-    // année auto
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // menu mobile (toggle)
-    const btn = document.querySelector('.nav-toggle');
-    const menu = document.getElementById('navmenu');
-    btn?.addEventListener('click', ()=>{
-      const open = menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-
-    // fermer le menu après clic sur un lien
-    document.querySelectorAll('#navmenu a').forEach(a=>{
-      a.addEventListener('click', ()=>{
-        if(menu.classList.contains('open')){
-          menu.classList.remove('open');
-          btn.setAttribute('aria-expanded','false');
-        }
-      });
-    });
-
-    // Empêcher le "souvenir de scroll" + supprimer les #ancres sur iOS
-    if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
-    (function(){
-      document.addEventListener('click', function(e){
-        const a = e.target.closest('a[href^="#"]');
-        if (!a) return;
-        const id = a.getAttribute('href');
-        const el = document.querySelector(id);
-        if (!el) return;
-        e.preventDefault();
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
-      });
-      function stripHashOnMobile(){
-        const isMobile = window.matchMedia('(max-width: 900px)').matches;
-        if (isMobile && location.hash) {
-          history.replaceState(null, '', location.pathname + location.search);
-          window.scrollTo(0, 0);
-        }
-      }
-      window.addEventListener('load', stripHashOnMobile);
-      window.addEventListener('pageshow', stripHashOnMobile);
-    })();
-  </script>
-</body>
-</html>
+        <div class="ph"
